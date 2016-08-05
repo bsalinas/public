@@ -1,30 +1,23 @@
-<html>
-    <head>
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@flickr" />
-        <meta name="twitter:description" content="View the album on Flickr." />
-        <meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
-        <meta name="twitter:title" content="foo" />
-        <script>
-            var option_a = document.createElement('meta');
-                option_a.name="twitter:title";
-                option_a.content ="Hello World";
-            var option_b = document.createElement('meta');
-                option_b.name="twitter:title";
-                option_b.content ="Hello World 2";
-                
+---
+layout: default
+---
 
-            var hash = window.location.hash;
-            if(hash === '#foo')
-            {
-                document.getElementsByTagName('head')[0].appendChild(option_a);
-            } else 
-            {
-                document.getElementsByTagName('head')[0].appendChild(option_b);
-            }
-        </script>
-    </head>
-    <body>
-        <h1>Hello World</h1>
-    </body>
-</html>
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
