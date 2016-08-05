@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@flickr" />
+        <script>
+            var option_a = document.createElement('meta');
+                option_a.name="twitter:title";
+                option_a.content ="Hello World";
+            var option_b = document.createElement('meta');
+                option_b.name="twitter:title";
+                option_b.content ="Hello World 2";
+                
+
+            var hash = window.location.hash;
+            if(hash === '#foo')
+            {
+                document.getElementsByTagName('head')[0].appendChild(option_a);
+            } else 
+            {
+                document.getElementsByTagName('head')[0].appendChild(option_b);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+    </body>
+</html>
